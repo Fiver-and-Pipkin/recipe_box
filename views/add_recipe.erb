@@ -1,14 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Recipe Boxes</title>
-  <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
-  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-  <link rel='stylesheet' href='/styles.css'>
-</head>
-<body>
-  <div class="container">
-    <%= yield %>
-  </div>
-</body>
-</html>
+
+<h3>Add A Recipe</h3>
+
+  <form action='/add_recipe' method='post'>
+    <label for='recipe_name'>Recipe Name</label>
+    <input id='recipe_name' name='recipe_name' type='text'>
+
+    <label for='instructions'>Instructions</label>
+    <input id='instructions' name='instructions' type='text'>
+
+    <label for='ingredients'></label>
+    <input id='recipe_name' name='recipe_name' type='text'>
+
+    <button type="submit">add new recipe</button>
+</form>
+
+<ul>
+  <% @recipes.each() do |recipe| %>
+   <li><%= recipe.recipe_name %> </li>
+  <% end %>
+</ul>
+
+<p><a href='/'>to home page</a></p>

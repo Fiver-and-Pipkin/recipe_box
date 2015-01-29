@@ -1,17 +1,14 @@
 <h1>Recipe Box</h1>
 
-<h3></h3>
-<form action='/add_recipe' method="post">
-  <label for="recipe_name">Recipe Name: </label>
-  <input type="text" name="survey_name">
 
-</br>
+<h3><a href="/entree">entree recipes</a></h3>
+<h3><a href="/side">sides recipes</a></h3>
+<h3><a href="/dessert">dessert recipes</a></h3>
 
-<button type="submit">Add Your Survey!</button>
 
+<h4><strong>Add a recipe</strong></h4>
+<form action='/add_recipe' method='post'>
+  <label for='recipe_name'>Recipe Name</label>
+  <input id='recipe_name' name='recipe_name' type='text'>
+  <button type="submit">add new recipe</button>
 </form>
-
-
-<% @surveys.each() do |survey| %>
-<a href="/survey_list/<%= survey.id()%>"><%= survey.survey_name() %></a><br />
-<% end %>

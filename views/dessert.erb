@@ -1,0 +1,12 @@
+<h1>Here are list of Dessert Recipes </h1>
+
+
+<% @recipes.each() do |recipe| %>
+<a href="/recipe_list/<%= recipe.id()%>"><%= recipe.recipe_name() %></a><br />
+<% end %>
+
+<h3><a href="/side">sides recipes</a></h3>
+<h3><a href="/entree">dessert recipes</a></h3>
+
+
+<p><a href='/'>to home page</a></p>
