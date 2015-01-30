@@ -1,14 +1,31 @@
 <h1>Recipe Box</h1>
 
-
-<h3><a href="/entree">entree recipes</a></h3>
-<h3><a href="/side">sides recipes</a></h3>
-<h3><a href="/dessert">dessert recipes</a></h3>
+<p></p>
 
 
-<h4><strong>Add a recipe</strong></h4>
-<form action='/add_recipe' method='post'>
-  <label for='recipe_name'>Recipe Name</label>
-  <input id='recipe_name' name='recipe_name' type='text'>
-  <button type="submit">add new recipe</button>
-</form>
+
+<p>Add a new Category</p>
+
+<div class="jumbotron">
+  <form action='/categories' method='post'>
+    <label for='category_name'>Category Name</label>
+    <input id='category_name' name='category_name' type='text'>
+
+    <button type="submit" class="btn btn-sm btn-primary">Add Category</button>
+  </form>
+
+</div>
+
+<% if @categories.any?() %>
+<p>Click on a category to see its recipes:</p>
+
+
+
+<ul>
+  <% @categories.each do |category| %>
+  <li><a href="/categories/<%= category.id() %>"><%= category.category_name() %></a></li>
+  <% end %>
+</ul>
+<% else %>
+<p>There are no categories!</p>
+<% end %>

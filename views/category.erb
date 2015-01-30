@@ -1,0 +1,30 @@
+<h2>Add a recipe to <%= @category.category_name() %>'s list </h2>
+
+
+<form action="/recipes" method="post">
+  <input id="category_id" name="category_id" type="hidden" value="<%= @category.id() %>">
+
+  <label for="recipe_name">Recipe Name:</label>
+  <input id="recipe_name" name="recipe_name" type="text">
+
+  <button type="submit" class="btn btn-sm btn-primary">Add Recipe</button>
+</form>
+
+<% if @category.recipes().any?() %>
+<h4>Here are all the recipes in this list:</h4>
+
+  <ul>
+    <% @category.recipes.each() do |recipe| %>
+    <li><%= recipe.recipe_name %> <a href="/recipes/<%= recipe.id() %>/edit">Update this recipe's record</a></li>
+    <% end %>
+  </ul>
+  <% else %>
+  <p>This category has no recipes yet!</p>
+  <% end %>
+
+
+<p><a href="/categories/<%= @category.id() %>/edit">Edit or Delete <%= @category.category_name() %>'s info</a></p>
+
+
+
+<p><a href="/">Return to Main Page</a></p>
